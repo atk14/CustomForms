@@ -8,7 +8,7 @@ class CustomFormFieldsetsForm extends AdminForm {
 			"required" => false,
 		]));
 
-		$this->add_translatable_field("description", new WysiwygField([
+		$this->add_translatable_field("description", new MarkdownField([
 			"label" => _("Popis"),
 			"required" => false,
 		]));

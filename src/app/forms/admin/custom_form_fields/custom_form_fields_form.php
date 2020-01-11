@@ -6,15 +6,6 @@ class CustomFormFieldsForm extends AdminForm {
 			"label" => _("Fieldset"),
 		]));
 
-		$this->add_field("name", new RegexField('/[a-z][a-z0-9_]*/',[
-			"label" => _("Název hodnoty"),
-			"max_length" => 255,
-			"hints" => [
-				"firstname",
-				"year_of_birth",
-			],
-		]));
-	
 		$choices = [];
 		foreach(CustomFormField::GetSupportedFields() as $item){
 			$choices[$item["class_name"]] = $item["name"];
@@ -24,6 +15,15 @@ class CustomFormFieldsForm extends AdminForm {
 			"choices" => $choices,
 		]));
 
+		$this->add_field("name", new RegexField('/[a-z][a-z0-9_]*/',[
+			"label" => _("Název hodnoty (počítačový)"),
+			"max_length" => 255,
+			"hints" => [
+				"firstname",
+				"year_of_birth",
+			],
+		]));
+	
 		$this->add_translatable_field("label", new CharField([
 			"label" => _("Titulek"),
 			"max_length" => 255,

@@ -1,0 +1,21 @@
+{
+        "name": "atk14/custom-forms",
+        "type": "library",
+        "description": "A set of functionality providing forms visually programmable by a user in administration",
+        "keywords": [],
+        "homepage": "https://github.com/atk14/CustomForms",
+        "license": ["MIT"],
+        "authors": [
+                {
+                        "name": "ATK14 Development Team",
+                        "homepage": "https://github.com/orgs/atk14/people"
+                }
+        ],
+        "require": {
+                "php": ">=5.4.0"
+        },
+        "require-dev": {
+        },
+        "autoload": {
+        }
+}

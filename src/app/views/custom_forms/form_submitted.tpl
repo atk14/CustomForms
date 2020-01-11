@@ -5,8 +5,8 @@
 {admin_menu for=$custom_form}
 
 <div class="alert alert-success">
-	{if $custom_form->getFinishMessage()|strip_tags|trim}
-		{!$custom_form->getFinishMessage()}
+	{if $custom_form->getFinishMessage()|trim}
+		{!$custom_form->getFinishMessage()|markdown}
 	{else}
 		<p>
 			{t}Formulář byl úspěšně odeslán.{/t}<br>

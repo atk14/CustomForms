@@ -19,7 +19,7 @@
 	{foreach $custom_form->getFieldsets() as $fieldset}
 		<fieldset>
 			{if $fieldset->getTitle()}<legend>{$fieldset->getTitle()}</legend>{/if}
-			{!$fieldset->getDescription()}
+			{!$fieldset->getDescription()|markdown}
 			{foreach $fieldset->getFields() as $field}
 				{render partial="shared/form_field" field=$field->getName()}
 			{/foreach}

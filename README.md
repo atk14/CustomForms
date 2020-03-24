@@ -114,4 +114,9 @@ There is a couple of things needed to be merged manually.
       }
     }
 
+    {* file: app/views/pages/detail.tpl *}
+    {if $page->getCustomForm()}
+       {render_component controller="custom_forms" action="detail" id=$page->getCustomForm()}
+    {/if}
+
 [//]: # ( vim: set ts=2 et: )

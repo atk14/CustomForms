@@ -34,5 +34,13 @@ class CustomFormsForm extends AdminForm {
 			"label" => _("Text zobrazený po odeslání formuláře"),
 			"required" => false,
 		]));
+
+		$this->add_field("code", new CharField([
+			"label" => _("Unikátní identikační kód formuláře"),
+			"null_empty_output" => true,
+			"max_length" => 255,
+			"required" => false,
+			"help_text" => _("Pokud si nejste jisti, ponechte toto pole beze změny."),
+		]));
 	}
 }

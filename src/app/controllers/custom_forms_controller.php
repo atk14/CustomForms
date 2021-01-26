@@ -1,6 +1,8 @@
 <?php
 class CustomFormsController extends ApplicationController {
 
+	var $custom_form_data_just_created = null;
+
 	function detail(){
 		global $ATK14_GLOBAL;
 
@@ -58,6 +60,8 @@ class CustomFormsController extends ApplicationController {
 				$this->mailer->notify_custom_form_submission($cfd);
 				Atk14Locale::Initialize($curr_lang);
 			}
+
+			$this->custom_form_data_just_created = $cfd;
 
 			$url = $cfd->getUrl();
 			$url .= strpos($url,'?') ? '&' : '?';

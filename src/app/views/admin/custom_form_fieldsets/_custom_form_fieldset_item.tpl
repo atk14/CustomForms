@@ -15,10 +15,15 @@
 			<ul class="list-group list-group-flush list-sortable" data-sortable-url="{link_to action="custom_form_fields/set_rank"}">
 				{foreach $fields as $field}
 					<li class="list-group-item" data-id="{$field->getId()}">
-						{$field->getName()} <em>{$field->getLabel()}</em>
-						{if $field->choicesRequired()}
-							<small>({t choices_count=sizeof($field->getChoices())}počet voleb: %1{/t})</small>
-						{/if}
+						<div class="float-left">
+							{$field->getLabel()}
+							{if $field->choicesRequired()}
+								<small class="text-muted">({t choices_count=sizeof($field->getChoices())}počet voleb: %1{/t})</small>
+							{/if}
+							<br>
+							<small>{$field->getName()}</small>
+						</div>
+
 						{dropdown_menu}
 							{a action="custom_form_fields/edit" id=$field}{!"pencil-alt"|icon} {t}Upravit{/t}{/a}
 							{a_destroy action="custom_form_fields/destroy" id=$field}{!"trash-alt"|icon} {t}Smazat{/t}{/a_destroy}

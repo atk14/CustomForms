@@ -15,15 +15,6 @@ class CustomFormFieldsForm extends AdminForm {
 			"choices" => $choices,
 		]));
 
-		$this->add_field("name", new RegexField('/[a-z][a-z0-9_]*/',[
-			"label" => _("Název hodnoty (počítačový)"),
-			"max_length" => 255,
-			"hints" => [
-				"firstname",
-				"year_of_birth",
-			],
-		]));
-	
 		$this->add_translatable_field("label", new CharField([
 			"label" => _("Titulek"),
 			"max_length" => 255,
@@ -33,6 +24,15 @@ class CustomFormFieldsForm extends AdminForm {
 			],
 		]));
 
+		$this->add_field("name", new RegexField('/[a-z][a-z0-9_]*/',[
+			"label" => _("Název hodnoty (počítačový)"),
+			"max_length" => 255,
+			"hints" => [
+				"firstname",
+				"year_of_birth",
+			],
+		]));
+	
 		$this->add_field("required", new BooleanField([
 			"label" => _("Povinné políčko?"),
 			"required" => false,

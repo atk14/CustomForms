@@ -1,20 +1,20 @@
 Custom Forms
-------------
+============
 
 A set of functionality providing forms visually programmable by a user in administration.
 
 Custom Forms are designed for applications built on Atk14Skelet.
 
 Usage
-=====
+-----
 
 Prerequisites
-=============
+-------------
 
 ### User Authorization
 
 Installation
-============
+------------
 
     cd path/to/your/project/
     composer require atk14/custom-forms
@@ -118,5 +118,12 @@ There is a couple of things needed to be merged manually.
     {if $page->getCustomForm()}
        {render_component controller="custom_forms" action="detail" id=$page->getCustomForm()}
     {/if}
+
+Configuration
+-------------
+
+To use reCaptcha field, the constants RECAPTCHA_SITE_KEY and RECAPTCHA_SECRET_KEY must to be defined. See https://packagist.org/packages/atk14/recaptcha-field.
+
+To use hCaptcha field, the constants HCAPTCHA_SITE_KEY and HCAPTCHA_SECRET_KEY must be defined. See https://packagist.org/packages/atk14/hcaptcha-field.
 
 [//]: # ( vim: set ts=2 et: )

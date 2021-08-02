@@ -3,6 +3,10 @@ Change Log
 
 All notable changes to this project will be documented in this file.
 
+## [0.4] - 2021-08-02
+
+- Refactoring - used package atk14/csv-writer
+
 ## [0.3] - 2021-07-31
 
 - Added CustomFormFields\HcaptchaField

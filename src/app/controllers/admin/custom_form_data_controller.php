@@ -52,7 +52,7 @@ class CustomFormDataController extends AdminController {
 		$writer = $this->_get_writer();
 
 		$this->render_template = false;
-		$this->response->setContentType("application/vnd.ms-excel");
+		$this->response->setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 		$date = date("Y-m-d_H:i:s");
 		$this->response->setHeader("Content-disposition", "attachment; filename=\"{$this->custom_form->getTitle()}-$date.xlsx\"");
 		$this->response->write($writer->writeToString(["format" => "xlsx", "sheet_name" => $this->custom_form->getTitle()]));

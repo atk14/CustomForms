@@ -34,7 +34,7 @@ class CustomFormData extends ApplicationModel {
 		}
 
 		$headers = [
-			'#',
+			'id',
 			_('Datum přijetí'),
 			_('Přijato ze stránky'),
 			_('Název stránky'),

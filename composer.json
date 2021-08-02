@@ -13,9 +13,9 @@
         ],
         "require": {
                 "php": ">=5.4.0",
+                "atk14/csv-writer": "^1.2",
                 "atk14/recaptcha-field": "^0.1.2",
-                "atk14/hcaptcha-field": "^0.1",
-                "ellumilel/php-excel-writer": "^0.1.7"
+                "atk14/hcaptcha-field": "^0.1"
         },
         "require-dev": {
         },

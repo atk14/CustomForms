@@ -23,40 +23,39 @@ class CustomFormDataController extends AdminController {
 		return [$conditions, $bind_ar];
 	}
 
-	function _csv() {
+	function _get_writer(){
 		list($headers, $rows) = CustomFormData::DataExport($this->finder,[ 'replace_newline' => true ]);
-		$this->render_template = false;
-		$outstream = fopen("php://output", 'r+');
 
-		ob_start();
-		fputcsv($outstream, $headers, ',', '"');
-		foreach($rows as $row) {
-			$return = fputcsv($outstream,  $row, ',', '"');
-			if($return !== FALSE && 0 === fseek($handle, -1, SEEK_CUR)) {
-				fwrite($handle, "\r\n");
-			}
-		}
-		fclose($outstream);
-		$data = ob_get_clean();
+		$writer = new CsvWriter([
+			"delimiter" => ";",
+			"quote" => '"',
+			"escape_char" => "\\",
+		]);
+		$writer->addRow($headers);
+		$writer->addRows($rows);
 
-		$this->response->setContentType('text/csv; charset=UTF-8');
-		$date=date("Y-m-d H:i:s");
-		$this->response->setHeader('Content-disposition', "attachment; filename=\"{$this->custom_form->getTitle()}-$date.csv\"");
+		return $writer;
+	}
+
+	function _csv() {
+		$writer = $this->_get_writer();
+
 		$this->render_template = false;
-		$this->response->write("\xEF\xBB\xBF");
-		$this->response->write($data);
+		$this->response->setContentType("text/csv; charset=UTF-8");
+		$date = date("Y-m-d_H:i:s");
+		$this->response->setHeader("Content-disposition", "attachment; filename=\"{$this->custom_form->getTitle()}-$date.csv\"");
+		$this->render_template = false;
+		$this->response->write($writer->writeToString());
 	}
 
 	function _xls() {
-		list($headers, $rows) = CustomFormData::DataExport($this->finder, ['replace_newline' => " | "]);
-		array_unshift($rows, $headers);
-		$wExcel = new Ellumilel\ExcelWriter();
-		$wExcel->writeSheet($rows, $this->custom_form->getTitle());
+		$writer = $this->_get_writer();
+
 		$this->render_template = false;
-		$this->response->setContentType('application/vnd.ms-excel');
-		$date=date("Y-m-d H:i:s");
-		$this->response->setHeader('Content-disposition', "attachment; filename=\"{$this->custom_form->getTitle()}-$date.xlsx\"");
-		$this->response->write($wExcel->writeToString());
+		$this->response->setContentType("application/vnd.ms-excel");
+		$date = date("Y-m-d_H:i:s");
+		$this->response->setHeader("Content-disposition", "attachment; filename=\"{$this->custom_form->getTitle()}-$date.xlsx\"");
+		$this->response->write($writer->writeToString(["format" => "xlsx", "sheet_name" => $this->custom_form->getTitle()]));
 	}
 
 	function index(){

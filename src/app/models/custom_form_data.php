@@ -37,6 +37,7 @@ class CustomFormData extends ApplicationModel {
 			'#',
 			_('Datum přijetí'),
 			_('Přijato ze stránky'),
+			_('Název stránky'),
 			_('Přihlášený uživatel'),
 			_('Přijato z IP adresy'),
 			_('Přijato z adresy'),
@@ -49,6 +50,7 @@ class CustomFormData extends ApplicationModel {
 			$row = [
 				$data->getId(),
 				date("Y-m-d H:i:s", strtotime($data->getCreatedAt())),
+				$data->getUrl(),
 				$data->getPageTitle(),
 				$data->getCreatedByUser() ? $data->getCreatedByUser()->getLogin() : null,
 				$data->getCreatedFromAddr(),

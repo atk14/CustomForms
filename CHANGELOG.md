@@ -3,6 +3,10 @@ Change Log
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.2] - 2021-08-02
+
+- Content type for XLSX export fixed
+
 ## [0.4.1] - 2021-08-02
 
 - CSV header fixed - "#" was replaced with "id"

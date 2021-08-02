@@ -3,6 +3,10 @@ Change Log
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.1] - 2021-08-02
+
+- CSV header fixed - "#" was replaced with "id"
+
 ## [0.4] - 2021-08-02
 
 - Refactoring - used package atk14/csv-writer

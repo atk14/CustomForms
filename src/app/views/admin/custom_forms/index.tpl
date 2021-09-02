@@ -13,8 +13,9 @@
 				{sortable key=id}<th class="item-id">#</th>{/sortable}
 				{sortable key=title}<th class="item-title">{t}Title{/t}</th>{/sortable}
 				<th>{t}Notifikovat na e-mail{/t}</th>
-				{sortable key=created_at}<th class="item-published">{t}Datum vytvoření{/t}</th>{/sortable}
+				<th>{t}Počet odeslání{/t}</th>
 				{sortable key=last_submitted_at}<th>{t}Naposledy odesláno{/t}</th>{/sortable}
+				{sortable key=created_at}<th class="item-published">{t}Datum vytvoření{/t}</th>{/sortable}
 				<th></th>
 			</tr>
 		</thead>

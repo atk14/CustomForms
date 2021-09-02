@@ -31,6 +31,10 @@ class CustomForm extends ApplicationModel implements Translatable {
 		return $this->g("visible");
 	}
 
+	function getCountOfDataRecords(){
+		return $this->dbmole->selectInt("SELECT COUNT(*) FROM custom_form_data WHERE custom_form_id=:custom_form",[":custom_form" => $this]);
+	}
+
 	function isDeletable(){
 		foreach(["custom_form_data","pages"] as $table){
 			$cnt = $this->dbmole->selectInt("SELECT COUNT(*) FROM (SELECT id FROM $table WHERE custom_form_id=:custom_form LIMIT 1)q",[":custom_form" => $this]);

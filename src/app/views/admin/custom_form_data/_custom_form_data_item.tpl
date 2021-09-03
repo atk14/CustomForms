@@ -1,6 +1,20 @@
+{assign data $custom_form_data->getDataAsArray()}
+{assign keys $data|array_keys}
+{assign values $data|array_values}
+
 <tr>
 	<td>{$custom_form_data->getId()}</td>
 	<td>{$custom_form_data->getPageTitle()}</td>
+	{for $i=0 to 2}
+		<td>
+			{if $keys.$i}
+				<small>{$keys.$i}</small><br>
+				{$values.$i|truncate:50}
+			{else}
+				&mdash;
+			{/if}
+		</td>
+	{/for}
 	<td>{$custom_form_data->getCreatedFromHostname()}</td>
 	<td>{$custom_form_data->getCreatedAt()|format_datetime}</td>
 	<td>

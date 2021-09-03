@@ -24,6 +24,9 @@
 			<tr class="table-dark">
 				{sortable key=id}<th class="item-id">#</th>{/sortable}
 				{sortable key=page_title}<th>{t}Název stránky{/t}</th>{/sortable}
+				<th>{t no=1}Hodnota %1{/t}</th>
+				<th>{t no=2}Hodnota %1{/t}</th>
+				<th>{t no=3}Hodnota %1{/t}</th>
 				<th>{t}Přijato z adresy{/t}</th>
 				{sortable key=created_at}<th>{t}Datum{/t}</th>{/sortable}
 				<th></th>

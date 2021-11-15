@@ -73,6 +73,7 @@ class CustomFormsController extends ApplicationController {
 	function form_submitted(){
 		$custom_form_data = CustomFormData::GetInstanceByToken($this->params->getString("cfd_token"));
 		if(!$custom_form_data || $custom_form_data->getCustomFormId()!==$this->custom_form->getId()){
+			$this->custom_form = $this->tpl_data["custom_form"] = null;
 			return $this->_execute_action("error404");
 		}
 

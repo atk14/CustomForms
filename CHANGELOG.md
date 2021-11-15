@@ -3,26 +3,32 @@ Change Log
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.3] - 2021-11-15
+
+* e40b5e5 - Added max limit of form submissions from one IP address
+* b73f7de - The total number of submissions of individual forms is displayed in the administration
+* a9aa57f - The first 3 values are displayed in the list of data records
+
 ## [0.4.2] - 2021-08-02
 
-- Content type for XLSX export fixed
+* Content type for XLSX export fixed
 
 ## [0.4.1] - 2021-08-02
 
-- CSV header fixed - "#" was replaced with "id"
+* CSV header fixed - "#" was replaced with "id"
 
 ## [0.4] - 2021-08-02
 
-- Refactoring - used package atk14/csv-writer
+* Refactoring - used package atk14/csv-writer
 
 ## [0.3] - 2021-07-31
 
-- Added CustomFormFields\HcaptchaField
+* Added CustomFormFields\HcaptchaField
 
 ## [0.2] - 2021-01-26
 
-- After a successful Custom Form submission, the CustomFormsController::$custom_form_data_just_created is set
-- In administration, the code can be set on a Custom Form
+* After a successful Custom Form submission, the CustomFormsController::$custom_form_data_just_created is set
+* In administration, the code can be set on a Custom Form
 
 ## [0.1] - 2020-03-24
 

@@ -28,6 +28,25 @@ class CustomFormsController extends ApplicationController {
 		$this->form->prepare_for_custom_form($this->custom_form);
 
 		if($this->request->post() && ($d = $this->form->validate($this->params))){
+			// Checking max form submissions from the same remote address
+			$MINUTES_LIMIT = 2;
+			$SUBMISSIONS_LIMIT = 5;
+			$submissions = CustomFormData::FindAll([
+				"conditions" => [
+					"created_from_addr=:remote_addr", 
+					"created_at>=:limit_date"
+				],
+				"bind_ar" => [
+					":remote_addr" => $this->request->getRemoteAddr(),
+					":limit_date" => date("Y-m-d H:i:s",time() - 60 * $MINUTES_LIMIT),
+				],
+				"limit" => $SUBMISSIONS_LIMIT + 1,
+			]);
+			if(sizeof($submissions)>=$SUBMISSIONS_LIMIT){
+				trigger_error("CustomFormsController: max submissions reached ($SUBMISSIONS_LIMIT) from IP address ".$this->request->getRemoteAddr());
+				$this->form->set_error("Bylo dosaženo maximálního počtu odeslání formuláře z jedné IP adresy. Chvíli vyčkejte a odešlete formulář znovu.");
+				return;
+			}
 
 			$files = [];
 			foreach($d as $k => $v){

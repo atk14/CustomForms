@@ -24,7 +24,7 @@ class CustomFormFieldsForm extends AdminForm {
 			],
 		]));
 
-		$this->add_field("name", new RegexField('/[a-z][a-z0-9_]*/',[
+		$this->add_field("name", new RegexField('/^[a-z][a-z0-9_]*$/',[
 			"label" => _("Název hodnoty (počítačový)"),
 			"max_length" => 255,
 			"hints" => [

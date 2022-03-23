@@ -3,6 +3,14 @@ Change Log
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.5] - 2022-03-16
+
+* b7c5ed9 - Form field fixed
+
+## [0.4.4] - 2021-11-15
+
+* 6e680f4 - Fix - better reaction on invalid parametr cfd_token
+
 ## [0.4.3] - 2021-11-15
 
 * e40b5e5 - Added max limit of form submissions from one IP address

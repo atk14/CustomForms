@@ -92,8 +92,13 @@ class CustomFormsController extends ApplicationController {
 	function form_submitted(){
 		$custom_form_data = CustomFormData::GetInstanceByToken($this->params->getString("cfd_token"));
 		if(!$custom_form_data || $custom_form_data->getCustomFormId()!==$this->custom_form->getId()){
-			$this->custom_form = $this->tpl_data["custom_form"] = null;
-			return $this->_execute_action("error404");
+			// removing parameter cfd_token from the URL
+			$url = $this->request->getUrl();
+			$url = preg_replace('/([?&])cfd_token=[^&]*&?/','\1',$url);
+			$url = preg_replace('/[&?]$/','',$url);
+			$url = preg_replace('/\?&/','?',$url);
+			$this->_redirect_to($url);
+			return;
 		}
 
 		if(strtotime($custom_form_data->getCreatedAt())<(time() - 60 * 15)){

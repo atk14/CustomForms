@@ -75,7 +75,7 @@ There is a couple of things needed to be merged manually.
       array(_("Articles"),               "articles"),
       array(_("Pages"),                  "pages"),
       array(_("Link Lists"),             "link_lists,link_list_items"),
-      array(_("Forms"),                  "custom_forms,custom_form_fieldsets,custom_form_fields,custom_form_field_choices,custom_form_data"),
+      array(_("Custom forms"),           "custom_forms,custom_form_fieldsets,custom_form_fields,custom_form_field_choices,custom_form_data"),
       array(_("Tags"),                   "tags"),
       array(_("Password recoveries"),    "password_recoveries"),
       array(_("Newsletter subscribers"), "newsletter_subscribers"),
@@ -100,6 +100,7 @@ There is a couple of things needed to be merged manually.
     // file: app/forms/admin/pages/pages_form.php
     class PagesForm extends AdminForm {
       function set_up(){
+        // ... after adding the field parent_page_id
         $this->add_field("custom_form_id", new CustomFormChoiceField([
           "label" => _("Custom form"),
           "required" => false,

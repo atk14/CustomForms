@@ -31,6 +31,8 @@
 			<span class="button-container">
 				<button type="submit" class="btn btn-primary">{$form->get_button_text()}</button>
 
+				{if sizeof($form->fields)>5}{* Up to five fields, the reset button is not displayed *}
+
 				{capture assign=reset_button_text}{t}Vyčistit formulář{/t}{/capture}
 				{capture assign=reset_button_confirmation}{t}Skutečně chcete vyčistit formulář?{/t}{/capture}
 				{if $request->get()}
@@ -38,6 +40,8 @@
 				{else}
 					{* Post? Vycisteni vyresime prostym odkazem na pradny formular. *}
 					<a href="{$request->getUri()}" class="btn btn-warning" onclick="return confirm({h}{jstring}{$reset_button_text}{/jstring}{/h});">{$reset_button_text}</a>
+				{/if}
+
 				{/if}
 
 			</span>

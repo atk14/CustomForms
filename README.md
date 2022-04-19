@@ -61,6 +61,8 @@ Installation
 
     ln -s ../../vendor/atk14/custom-forms/src/app/widgets/custom_form_widgets app/widgets/
 
+    ln -s ../../vendor/atk14/emails-field/src/app/fields/emails_field.php app/fields/emails_field.php
+
 Copy migrations files to your project. The leading numbered sequences can be optionally changed, but it's better to preserve them in order to tracking changes in future versions of the Custom Forms.
 
     cp vendor/atk14/custom-forms/src/db/migrations/0145_custom_forms.sql db/migrations/

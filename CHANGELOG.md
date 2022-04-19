@@ -3,6 +3,11 @@ Change Log
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.6] - 2022-04-19
+
+* d94aa1a - It is possible to send anotification on more email addresses
+* 68bc49e - Up to five fields, the reset button is not displayed
+
 ## [0.4.5] - 2022-03-16
 
 * b7c5ed9 - Form field fixed

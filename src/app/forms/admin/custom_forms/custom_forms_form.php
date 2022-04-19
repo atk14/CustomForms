@@ -24,10 +24,11 @@ class CustomFormsForm extends AdminForm {
 			"button_text_sk" => "Odoslať"
 		]);
 
-		$this->add_field("notify_to_email", new EmailField([
+		$this->add_field("notify_to_email", new EmailsField([
 			"label" => _("Notifikovat odeslání formuláře na e-mail"),
 			"max_length" => 255,
 			"required" => false,
+			"help_text" => _("Je možné zadat více e-mailových adres oddělených čárkou."),
 		]));
 
 		$this->add_translatable_field("finish_message", new MarkdownField([

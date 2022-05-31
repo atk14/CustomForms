@@ -2,7 +2,9 @@
 namespace CustomFormFields;
 
 /**
- * Textové políčko (krátký text)
+ * Text field (short text)
+ *
+ * cs: Textové políčko (krátký text)
  */
 class CharField extends \CharField {
 	

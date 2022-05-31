@@ -2,7 +2,9 @@
 namespace CustomFormFields;
 
 /**
- * Textový dokument (soubor pdf, docx, odt nebo doc)
+ * Text document (file pdf, docx, odt or doc)
+ *
+ * cs: Textový dokument (soubor pdf, docx, odt nebo doc)
  */
 class TextDocumentField extends \FileField {
 

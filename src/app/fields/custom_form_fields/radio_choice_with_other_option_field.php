@@ -2,7 +2,9 @@
 namespace CustomFormFields;
 
 /**
- * Výběr hodnoty s jinou možností (radio buttons + textarea)
+ * Selecting a value with another option (radio buttons + textarea)
+ *
+ * cs: Výběr hodnoty s jinou možností (radio buttons + textarea)
  */
 class RadioChoiceWithOtherOptionField extends RadioChoiceField {
 

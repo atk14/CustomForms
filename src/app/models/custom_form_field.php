@@ -25,7 +25,8 @@ class CustomFormField extends ApplicationModel implements Translatable, Rankable
 			$name = $class_name;
 			$content = Files::GetFileContent($filename);
 			if(preg_match('/^.+?\/\*{1,2}\s*\n\s*\*(.*?)\n/s',$content,$matches)){
-				$name = $matches[1];
+				$name = trim($matches[1]);
+				
 			}
 
 			$key = "$name $class_name";

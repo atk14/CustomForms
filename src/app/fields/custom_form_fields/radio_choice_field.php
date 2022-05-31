@@ -2,7 +2,9 @@
 namespace CustomFormFields;
 
 /**
- * Výběr hodnoty (radio buttons)
+ * Value selection (radio buttons)
+ *
+ * cs: Výběr hodnoty (radio buttons)
  */
 class RadioChoiceField extends \ChoiceField {
 

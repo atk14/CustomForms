@@ -2,7 +2,9 @@
 namespace CustomFormFields;
 
 /**
- * Výběr více hodnot (checkboxes)
+ * Select multiple values (checkboxes)
+ *
+ * cs: Výběr více hodnot (checkboxes)
  */
 class MultipleChoiceField extends \MultipleChoiceField {
 

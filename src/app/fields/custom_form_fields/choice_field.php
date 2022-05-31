@@ -2,7 +2,9 @@
 namespace CustomFormFields;
 
 /**
- * Výběr hodnoty (select box)
+ * Value selection (select box)
+ *
+ * cs: Výběr hodnoty (select box)
  */
 class ChoiceField extends \ChoiceField {
 

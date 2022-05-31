@@ -2,7 +2,9 @@
 namespace CustomFormFields;
 
 /**
- * Datum
+ * Date
+ *
+ * cs: Datum
  */
 class DateField extends \DateField {
 

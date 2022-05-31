@@ -3,6 +3,8 @@ namespace CustomFormFields;
 
 /**
  * Checkbox
+ *
+ * cs: Checkbox
  */
 class BooleanField extends \BooleanField {
 

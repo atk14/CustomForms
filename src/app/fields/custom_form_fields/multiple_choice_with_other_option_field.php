@@ -2,7 +2,9 @@
 namespace CustomFormFields;
 
 /**
- * Výběr více hodnot s jinou možností (checkboxes + textarea)
+ * Selecting multiple values with a different option (checkboxes + textarea)
+ *
+ * cs: Výběr více hodnot s jinou možností (checkboxes + textarea)
  */
 class MultipleChoiceWithOtherOptionField extends MultipleChoiceField {
 

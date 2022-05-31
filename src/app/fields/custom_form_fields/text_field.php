@@ -2,7 +2,9 @@
 namespace CustomFormFields;
 
 /**
- * Textové políčko (dlouhý text)
+ * Text field (long text)
+ *
+ * cs: Textové políčko (dlouhý text)
  */
 class TextField extends \TextField {
 

@@ -2,7 +2,9 @@
 namespace CustomFormFields;
 
 /**
- * Telefonní číslo
+ * Phone number
+ *
+ * cs: Telefonní číslo
  */
 class PhoneField extends \PhoneField {
 

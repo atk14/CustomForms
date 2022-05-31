@@ -2,7 +2,9 @@
 namespace CustomFormFields;
 
 /**
- * Captcha (jednoduchá ochrana)
+ * Captcha (simple protection)
+ *
+ * cs: Captcha (jednoduchá ochrana)
  */
 class CaptchaField extends \CharField {
 	

@@ -3,6 +3,11 @@ Change Log
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.7] - 2022-06-10
+
+* 3eea8f2 - CustomFormFields\PhoneField fixed
+* 258ec01 - English names of custom for fields
+
 ## [0.4.6] - 2022-04-19
 
 * d94aa1a - It is possible to send anotification on more email addresses

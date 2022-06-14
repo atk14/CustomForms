@@ -1,7 +1,13 @@
 Change Log
 ==========
 
-All notable changes to this project will be documented in this file.
+All notable changes to Custom Forms project will be documented in this file.
+
+## [0.4.8] - 2022-06-14
+
+* e4e8bec - Added CustomFormFields\ImageField - field for uploading an image
+* 5dd866b - Added CustomFormsRouter
+* 0fba934 - Action custom_form_data_files/detail fixed
 
 ## [0.4.7] - 2022-06-10
 

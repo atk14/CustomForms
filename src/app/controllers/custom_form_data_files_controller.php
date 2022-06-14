@@ -15,7 +15,8 @@ class CustomFormDataFilesController extends ApplicationController {
 		}
 
 		$this->render_template = false;
-		$this->response->setContentType($file->getFilename());
+		$this->response->setContentType($file->getMimeType());
+		$this->response->setHeader(sprintf('Content-Disposition: attachment; filename="%s"',h($file->getFilename())));
 		$this->response->write(base64_decode($file->getBody()));
 	}
 }

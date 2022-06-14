@@ -61,7 +61,10 @@ Installation
 
     ln -s ../../vendor/atk14/custom-forms/src/app/widgets/custom_form_widgets app/widgets/
 
+    ln -s ../../vendor/atk14/custom-forms/src/config/routers/custom_forms_router.php ./config/routers/
+
     ln -s ../../vendor/atk14/emails-field/src/app/fields/emails_field.php app/fields/emails_field.php
+
 
 Copy migrations files to your project. The leading numbered sequences can be optionally changed, but it's better to preserve them in order to tracking changes in future versions of the Custom Forms.
 
@@ -121,6 +124,10 @@ There is a couple of things needed to be merged manually.
     {if $page->getCustomForm()}
        {render_component controller="custom_forms" action="detail" id=$page->getCustomForm()}
     {/if}
+
+Edit config/routers/load.php and add the instruction for load the CustomFormsRouter:
+
+    Atk14Url::AddRouter("CustomFormsRouter");
 
 Configuration
 -------------

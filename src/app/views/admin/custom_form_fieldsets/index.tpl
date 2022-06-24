@@ -1,4 +1,4 @@
-<h3>{button_create_new custom_form_id=$custom_form}{/button_create_new} {$page_title}</h3>
+<h3 id="custom_form_fieldsets">{button_create_new custom_form_id=$custom_form return_to_anchor="custom_form_fieldsets"}{/button_create_new} {$page_title}</h3>
 
 {if $custom_form_fieldsets}
 

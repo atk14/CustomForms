@@ -45,4 +45,24 @@ class CustomFormFieldsForm extends AdminForm {
 			"help_text" => _("Je možné zadávat HTML značky."),
 		]));
 	}
+
+	function clean(){
+		list($err,$d) = parent::clean();
+
+		if($d && isset($d["class_name"])){
+			foreach([
+				"\CustomFormFields\HcaptchaField" => ["HCAPTCHA_SITE_KEY","HCAPTCHA_SECRET_KEY"],
+				"\CustomFormFields\RecaptchaField" => ["RECAPTCHA_SITE_KEY","RECAPTCHA_SECRET_KEY"],
+			] as $f => $constants){
+				if($d["class_name"]!==$f){ continue; }
+				$c_1 = $constants[0];
+				$c_2 = $constants[1];
+				if(!defined($c_1) || !defined($c_2) || !constant($c_1) || !constant($c_2)){
+					$this->set_error("class_name",sprintf(_("This field cannot be used. Constants %s and %s are not defined properly."),$c_1,$c_2));
+				}
+			}
+		}
+
+		return [$err,$d];
+	}
 }

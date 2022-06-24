@@ -63,6 +63,16 @@ class CustomFormFieldsForm extends AdminForm {
 			}
 		}
 
+		if($d && isset($d["name"])){
+			$conficting_record = CustomFormField::FindFirst("custom_form_id",$this->controller->custom_form,"name",$d["name"]);
+			if($conficting_record && is_a($this,"CreateNewForm")){
+				$this->set_error("name",_("The same name is already used in the form"));
+			}elseif($conficting_record && $conficting_record->getId()!==$this->controller->custom_form_field->getId()){
+				// EditForm
+				$this->set_error("name",_("The same name is already used in the form"));
+			}
+		}
+
 		return [$err,$d];
 	}
 }

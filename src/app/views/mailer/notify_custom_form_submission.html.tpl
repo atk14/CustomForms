@@ -8,7 +8,7 @@
 <strong>{t}Přijato ze stránky{/t}:</strong><br/>
 {$custom_form_data->getPageTitle()} ({$custom_form_data->getUrl()})<br/>
 <strong>{t}Přihlášený uživatel{/t}:</strong><br/>
-{$custom_form_data->getCreatedByUser()|user_name|default:$mdash}<br/>
+{$custom_form_data->getCreatedByUser()|user_name|default:"-"}<br/>
 <strong>{t}Přijato z adresy{/t}:</strong><br/>
 {$custom_form_data->getCreatedFromHostname()}{if $custom_form_data->getCreatedFromHostname()!=$custom_form_data->getCreatedFromAddr()} ({$custom_form_data->getCreatedFromAddr()}){/if}<br/>
 <strong>{t}Přijato z prohlížeče{/t}:</strong><br/>
@@ -25,6 +25,6 @@
 	{elseif is_array($value)}
 		{to_sentence var=$value}
 	{else}
-		{!$value|h|nl2br|default:$mdash}
+		{!$value|h|nl2br|default:"-"}
 	{/if}<br/>
 {/foreach}

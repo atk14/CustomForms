@@ -1,45 +1,30 @@
-<h2>{t title=$custom_form->getTitle()}Data z formuláře %1{/t}</h2>
+{t title=$custom_form->getTitle()}Data z formuláře %1{/t}<br/>
+<br/>
 
-<ul>
-	<li>
-		<strong>{t}Název formulář{/t}:</strong><br>
-		{$custom_form->getTitle()}
-	</li>
-	<li>
-		<strong>{t}Datum přijetí{/t}:</strong><br>
-		{$custom_form_data->getCreatedAt()|format_datetime}
-	</li>
-	<li>
-		<strong>{t}Přijato ze stránky{/t}:</strong><br>
-		{$custom_form_data->getPageTitle()} (<a href="{$custom_form_data->getUrl()}">{$custom_form_data->getUrl()}</a>)
-	</li>
-	<li>
-		<strong>{t}Přihlášený uživatel{/t}:</strong>
-		{$custom_form_data->getCreatedByUser()|user_name|default:$mdash}
-	</li>
-	<li>
-		<strong>{t}Přijato z adresy{/t}:</strong><br>
-		{$custom_form_data->getCreatedFromHostname()} ({$custom_form_data->getCreatedFromAddr()})
-	</li>
-	<li>
-		<strong>{t}Přijato z prohlížeče{/t}:</strong><br>
-		{$custom_form_data->getCreatedFromUserAgent()}
-	</li>
-</ul>
+<strong>{t}Název formulář{/t}:</strong><br/>
+{$custom_form->getTitle()}<br/>
+<strong>{t}Datum přijetí{/t}:</strong><br/>
+{$custom_form_data->getCreatedAt()|format_datetime}<br/>
+<strong>{t}Přijato ze stránky{/t}:</strong><br/>
+{$custom_form_data->getPageTitle()} ({$custom_form_data->getUrl()})<br/>
+<strong>{t}Přihlášený uživatel{/t}:</strong><br/>
+{$custom_form_data->getCreatedByUser()|user_name|default:$mdash}<br/>
+<strong>{t}Přijato z adresy{/t}:</strong><br/>
+{$custom_form_data->getCreatedFromHostname()}{if $custom_form_data->getCreatedFromHostname()!=$custom_form_data->getCreatedFromAddr()} ({$custom_form_data->getCreatedFromAddr()}){/if}<br/>
+<strong>{t}Přijato z prohlížeče{/t}:</strong><br/>
+{$custom_form_data->getCreatedFromUserAgent()}<br/>
+<br/>
 
-<h4>{t}Zaslaná data{/t}</h4>
+{t}Zaslaná data{/t}<br/>
+<br/>
 
-<ul>
-	{foreach $data as $key => $value}
-	<li>
-	<strong>{$key}:</strong><br>
-		{if is_bool($value)}
-			{$value|display_bool}
-		{elseif is_array($value)}
-			{to_sentence var=$value}
-		{else}
-			{!$value|h|nl2br|default:$mdash}
-		{/if}
-	</li>
-	{/foreach}
-</ul>
+{foreach $data as $key => $value}
+<strong>{$key}:</strong><br/>
+	{if is_bool($value)}
+		{$value|display_bool}
+	{elseif is_array($value)}
+		{to_sentence var=$value}
+	{else}
+		{!$value|h|nl2br|default:$mdash}
+	{/if}<br/>
+{/foreach}

@@ -6,7 +6,7 @@ class CustomFormFieldsetField extends ChoiceField {
 		if($custom_form){
 			$choices = [];
 			foreach($custom_form->getFieldsets() as $fieldset){
-				$choices[$fieldset->getId()] = strlen($fieldset->getTitle()) ? $fieldset->getTitle() : _("bez názvu");
+				$choices[$fieldset->getId()] = strlen((string)$fieldset->getTitle()) ? $fieldset->getTitle() : _("bez názvu");
 			}
 		}else{
 			$choices = ["" => ""];

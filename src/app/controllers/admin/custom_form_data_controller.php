@@ -9,7 +9,7 @@ class CustomFormDataController extends AdminController {
 		$conditions = ['custom_form_id = :id' ];
 		$bind_ar = [':id' => $this->custom_form ];
 		$choices = $this->dbmole->selectIntoArray("SELECT page_title FROM custom_form_data WHERE custom_form_id = :id",$bind_ar);
-		$choices = ['' => _('-- '._('filtrovat data podle stránky').' --')] + array_combine($choices, $choices);
+		$choices = ['' => '-- '._('filtrovat data podle stránky').' --'] + array_combine($choices, $choices);
 		$this->form->fields['page_title']->set_choices($choices);
 		$this->form->set_hidden_field('custom_form_id', $this->custom_form);
 		if($this->filter_params = $d = $this->form->validate($this->params)) {

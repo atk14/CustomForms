@@ -3,6 +3,11 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.4.9] - 2022-08-11
+
+* 01703a9 - A CustomForm submission should be processed neither too early (5 sec) nor too late (1 day)
+* Few fixes
+
 ## [0.4.8] - 2022-06-14
 
 * e4e8bec - Added CustomFormFields\ImageField - field for uploading an image

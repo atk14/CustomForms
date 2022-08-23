@@ -89,7 +89,7 @@ CREATE TABLE custom_form_data (
 	id INT PRIMARY KEY DEFAULT NEXTVAL('seq_custom_form_data'),
 	--
 	custom_form_id INT NOT NULL,
-	url VARCHAR(255),
+	url VARCHAR(255), -- TODO: This should be longer, like 2048 chars or more.
 	page_title VARCHAR(255),
 	--
 	data JSON,

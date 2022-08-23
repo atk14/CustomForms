@@ -65,7 +65,7 @@ class CustomFormsController extends ApplicationController {
 
 			$cfd = CustomFormData::CreateNewRecord([
 				"custom_form_id" => $this->custom_form,
-				"url" => $this->request->getUrl(),
+				"url" => substr($this->request->getUrl(),0,255), // TODO: It should be 2048 or more, see db/migrations/0145_custom_forms.sql
 				"page_title" => $this->page_title,
 				"data" => json_encode($d),
 			]);

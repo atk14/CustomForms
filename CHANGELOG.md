@@ -3,6 +3,10 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.4.10] - 2022-08-23
+
+* 737184e - Url shortened before saving into the table custom_form_data
+
 ## [0.4.9] - 2022-08-11
 
 * 01703a9 - A CustomForm submission should be processed neither too early (5 sec) nor too late (1 day)

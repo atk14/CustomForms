@@ -94,7 +94,7 @@ There is a couple of things needed to be merged manually.
       function notify_custom_form_submission($custom_form_data){
         $custom_form = $custom_form_data->getCustomForm();
         $this->to = $custom_form->getNotifyToEmail();
-        $this->subject = strtr(_("Odeslání formáře %form_title% ze stránky %page_title%"),["%form_title%" => $custom_form->getTitle(), "%page_title%" => $custom_form_data->getPageTitle()]);
+        $this->subject = strtr(_("Odeslání formuláře %form_title% ze stránky %page_title%"),["%form_title%" => $custom_form->getTitle(), "%page_title%" => $custom_form_data->getPageTitle()]);
 
         $this->tpl_data["custom_form"] = $custom_form;
         $this->tpl_data["custom_form_data"] = $custom_form_data;

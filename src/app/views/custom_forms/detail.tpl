@@ -36,10 +36,10 @@
 				{capture assign=reset_button_text}{t}Vyčistit formulář{/t}{/capture}
 				{capture assign=reset_button_confirmation}{t}Skutečně chcete vyčistit formulář?{/t}{/capture}
 				{if $request->get()}
-					<button type="reset" class="btn btn-warning" onclick="return confirm({h}{jstring}{$reset_button_confirmation}{/jstring}{/h});">{$reset_button_text}</button>
+					<button type="reset" class="btn btn-link" onclick="return confirm({h}{jstring}{$reset_button_confirmation}{/jstring}{/h});">{$reset_button_text}</button>
 				{else}
 					{* Post? Vycisteni vyresime prostym odkazem na pradny formular. *}
-					<a href="{$request->getUri()}" class="btn btn-warning" onclick="return confirm({h}{jstring}{$reset_button_text}{/jstring}{/h});">{$reset_button_text}</a>
+					<a href="{$request->getUri()}" class="btn btn-link" onclick="return confirm({h}{jstring}{$reset_button_text}{/jstring}{/h});">{$reset_button_text}</a>
 				{/if}
 
 				{/if}

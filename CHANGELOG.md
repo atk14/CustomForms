@@ -3,6 +3,10 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.4.11] - 2022-10-07
+
+* e5c395e - On the reset button: btn-warning replaced with btn-link
+
 ## [0.4.10] - 2022-08-23
 
 * 737184e - Url shortened before saving into the table custom_form_data

@@ -12,7 +12,8 @@ class CustomFormsController extends ApplicationController {
 		}
 
 		if(!$this->custom_form->isVisible() && (!$this->logged_user || !$this->logged_user->isAdmin())){
-			return $this->_execute_action("error403");
+			$this->render_template = false;
+			return;
 		}
 
 		if($this->params->defined("cfd_token")){

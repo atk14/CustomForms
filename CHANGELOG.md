@@ -3,6 +3,10 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.4.12] - 2022-11-14
+
+* bc1062a - It does not print anything if the custom form is not visible
+
 ## [0.4.11] - 2022-10-07
 
 * e5c395e - On the reset button: btn-warning replaced with btn-link

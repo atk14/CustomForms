@@ -29,6 +29,11 @@ trait TraitCustomFormsController {
 		$this->form->prepare_for_custom_form($this->custom_form);
 
 		if($this->request->post() && ($d = $this->form->validate($this->params))){
+			$this->_after_form_validation($d);
+			if($this->form->has_errors()){
+				return;
+			}
+
 			// Checking max form submissions from the same remote address
 			$MINUTES_LIMIT = 2;
 			$SUBMISSIONS_LIMIT = 5;
@@ -80,7 +85,7 @@ trait TraitCustomFormsController {
 				$def_lang = $ATK14_GLOBAL->getDefaultLang();
 				$curr_lang = Atk14Locale::Initialize($def_lang);
 				$this->mailer->notify_custom_form_submission($cfd);
-				\Atk14Locale::Initialize($curr_lang);
+				Atk14Locale::Initialize($curr_lang);
 			}
 
 			$this->_after_notification($cfd);
@@ -123,6 +128,14 @@ trait TraitCustomFormsController {
 		$this->breadcrumbs[] = $cf->getTitle();
 	}
 
+	// Process hooks
+
+	function _after_form_validation(&$d){
+		// if( $something_bad ){
+		//	$this->form->set_error("Change something and do it again");
+		// }
+	}
+	
 	function _after_custom_form_data_creation($custom_form_data){
 		return $custom_form_data;
 	}

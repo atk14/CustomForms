@@ -6,18 +6,20 @@
 
 <h1>{$page_title}</h1>
 
+{form _class="form-search"}
+	{!$form.q}
+	{!$form.page_title}&nbsp;
+	<button type='submit' class='btn btn-outline-primary' >{t}Hledat{/t}</button>&nbsp;
+	<button type='submit' class='btn btn-outline-primary' name='format' value='csv'>{t}Export do CSV{/t}</button>&nbsp;
+	<button type='submit' class='btn btn-outline-primary' name='format' value='xls'>{t}Export do Excelu{/t}</button>
+{/form}
+
+
 {if $finder->isEmpty()}
 
 	<p>{t}Žádný záznam nebyl nalezen.{/t}</p>
 
 {else}
-
-	{form _class="form-search"}
-		{!$form.page_title}&nbsp;
-		<button type='submit' class='btn btn-outline-primary' >{t}Hledat{/t}</button>&nbsp;
-		<button type='submit' class='btn btn-outline-primary' name='format' value='csv'>{t}Export do CSV{/t}</button>&nbsp;
-		<button type='submit' class='btn btn-outline-primary' name='format' value='xls'>{t}Export do Excelu{/t}</button>
-	{/form}
 
 	<table class="table table-sm table-striped">
 		<thead>

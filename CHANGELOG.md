@@ -3,6 +3,11 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.5.0] - 2023-01-04
+
+* ab6760f, 836b2f6 - The CustomFormController has been rewritten and some important events can be controlled in hooks
+* a327c75 - Added full-text search into the form data administration
+
 ## [0.4.12] - 2022-11-14
 
 * bc1062a - It does not print anything if the custom form is not visible

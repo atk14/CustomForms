@@ -12,14 +12,20 @@ class CustomFormDataController extends AdminController {
 		$choices = ['' => '-- '._('filtrovat data podle stránky').' --'] + array_combine($choices, $choices);
 		$this->form->fields['page_title']->set_choices($choices);
 		$this->form->set_hidden_field('custom_form_id', $this->custom_form);
-		if($this->filter_params = $d = $this->form->validate($this->params)) {
-			if($d['page_title']) {
-				$conditions[] = 'page_title = :page_title';
-				$bind_ar[':page_title'] = $d['page_title'];
-			}
-		} else {
-			$this->filter_params = [];
+		
+		($d = $this->form->validate($this->params)) || ($d = $this->form->get_initial());
+
+		$this->filter_params = [];
+
+		if($d['page_title']) {
+			$conditions[] = 'page_title = :page_title';
+			$bind_ar[':page_title'] = $d['page_title'];
 		}
+
+		if($ft_cond = FullTextSearchQueryLike::GetQuery("(SELECT LOWER(STRING_AGG(value,' ')) FROM JSON_EACH_TEXT((SELECT data FROM custom_form_data cfd WHERE cfd.id=custom_form_data.id)))",Translate::Lower($d["q"]),$bind_ar)){
+			$conditions[] = $ft_cond;
+		}
+
 		return [$conditions, $bind_ar];
 	}
 

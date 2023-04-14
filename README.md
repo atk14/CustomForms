@@ -63,9 +63,9 @@ Installation
 
     ln -s ../../vendor/atk14/custom-forms/src/config/routers/custom_forms_router.php ./config/routers/
 
-    ln -s ../../vendor/atk14/emails-field/src/app/fields/emails_field.php app/fields/emails_field.php
+    ln -s ../../vendor/atk14/custom-forms/src/app/helpers/function.drink_shortcode__custom_form.php app/helpers/
 
-    ln -s ../../vendor/atk14/emails-field/src/app/helpers/function.drink_shortcode__custom_form.php app/helpers/
+    ln -s ../../vendor/atk14/emails-field/src/app/fields/emails_field.php app/fields/emails_field.php
 
 
 Copy migrations files to your project. The leading numbered sequences can be optionally changed, but it's better to preserve them in order to tracking changes in future versions of the Custom Forms.

@@ -3,6 +3,10 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.5.1] - 2023-04-14
+
+* 5e264f1 - Added shortcode custom_form for DrinkMarkdown
+
 ## [0.5.0] - 2023-01-04
 
 * ab6760f, 836b2f6 - The CustomFormController has been rewritten and some important events can be controlled in hooks

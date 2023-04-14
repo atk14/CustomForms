@@ -65,6 +65,8 @@ Installation
 
     ln -s ../../vendor/atk14/emails-field/src/app/fields/emails_field.php app/fields/emails_field.php
 
+    ln -s ../../vendor/atk14/emails-field/src/app/helpers/function.drink_shortcode__custom_form.php app/helpers/
+
 
 Copy migrations files to your project. The leading numbered sequences can be optionally changed, but it's better to preserve them in order to tracking changes in future versions of the Custom Forms.
 

@@ -13,7 +13,7 @@
 	<dd>{$custom_form_data->getCreatedAt()|format_datetime}</dd>
 
 	<dt>{t}Přijato ze stránky{/t}</dt>
-	<dd><a href="{$custom_form_data->getUrl()}">{$custom_form_data->getPageTitle()|default:$mdash}</a></dd>
+	<dd><a href="{$custom_form_data->getUrl()}">{$custom_form_data->getPageTitle()|default:$custom_form_data->getUrl()}</a></dd>
 
 	<dt>{t}Přihlášený uživatel{/t}</dt>
 	<dd>{$custom_form_data->getCreatedByUser()|user_name|default:$mdash}</dd>

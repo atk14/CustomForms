@@ -4,7 +4,7 @@
 
 <tr>
 	<td>{$custom_form_data->getId()}</td>
-	<td>{$custom_form_data->getPageTitle()}</td>
+	<td>{$custom_form_data->getPageTitle()|default:$mdash}</td>
 	{for $i=0 to 2}
 		<td>
 			{if $keys.$i}

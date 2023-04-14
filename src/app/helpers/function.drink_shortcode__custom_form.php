@@ -30,6 +30,7 @@ function smarty_function_drink_shortcode__custom_form($params, $template) {
 		"namespace" => "",
 		"controller" => "custom_forms",
 		"action" => "detail",
-		"id" => $custom_form->getId()
+		"id" => $custom_form->getId(),
+		"page_title" => "",
 	],$template);
 }

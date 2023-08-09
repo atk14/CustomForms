@@ -31,6 +31,13 @@ class CustomFormsForm extends AdminForm {
 			"help_text" => _("Je možné zadat více e-mailových adres oddělených čárkou."),
 		]));
 
+		$this->add_translatable_field("notification_subject_pattern", new CharField([
+			"label" => _("Subjekt notifikační zprávy"),
+			"max_length" => 255,
+			"required" => false,
+			"null_empty_output" => true,
+		]));
+
 		$this->add_translatable_field("finish_message", new MarkdownField([
 			"label" => _("Text zobrazený po odeslání formuláře"),
 			"required" => false,

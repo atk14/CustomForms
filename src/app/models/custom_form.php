@@ -3,7 +3,7 @@ class CustomForm extends ApplicationModel implements Translatable {
 
 	use TraitGetInstanceByCode;
 
-	static function GetTranslatableFields() { return ["title", "description", "button_text", "finish_message"]; }
+	static function GetTranslatableFields() { return ["title", "description", "button_text", "finish_message", "notification_subject_pattern"]; }
 
 	function getCustomFormFieldsets(){
 		return CustomFormFieldset::FindAll("custom_form_id",$this);
@@ -25,6 +25,44 @@ class CustomForm extends ApplicationModel implements Translatable {
 
 	function getFields(){
 		return $this->getCustomFormFields();
+	}
+
+	/**
+	 *
+	 *	$subject_pattern = $custom_form->getNotificationSubjectPattern();
+	 *	$subject_pattern = $custom_form->getNotificationSubjectPattern("en");
+	 *	$subject_pattern = $custom_form->getNotificationSubjectPattern("en",["fallback_pattern" => "Form submission at %page_title%");
+	 *	$subject_pattern = $custom_form->getNotificationSubjectPattern(["fallback_pattern" => "Form submission at %page_title%"]);
+	 */
+	function getNotificationSubjectPattern($lang = null, $options = []){
+		if(is_array($lang)){
+			$options = $lang;
+			$lang = null;
+		}
+		$options += [
+			"fallback_pattern" => _("Odeslání formuláře %form_title% ze stránky %page_title%"),
+		];
+
+		$out = parent::getNotificationSubjectPattern($lang);
+		if(!strlen((string)$out)){
+			$out = $options["fallback_pattern"];
+		}
+
+		return $out;
+	}
+
+	/**
+	 *
+	 *	#subject = $custom_form->getNotificationSubject($custom_form_data);
+	 *	#subject = $custom_form->getNotificationSubject($custom_form_data,["fallback_pattern" => "Form submission at %page_title%"]);
+	 */
+	function getNotificationSubject(CustomFormData $custom_form_data,$options = []){
+		$subject = $this->getNotificationSubjectPattern($options);
+		$subject = strtr($subject,[
+			"%form_title%" => $this->getTitle(),
+			"%page_title%" => $custom_form_data->getPageTitle()
+		]);
+		return $subject;
 	}
 
 	function isVisible(){

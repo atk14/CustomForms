@@ -3,6 +3,11 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.5.3] - 2023-10-27
+
+* a354ee1 - Added checks for an option existance into administration
+* 71abbd3 - Notification subject pattern can be set on a specific CustomForm
+
 ## [0.5.2] - 2023-04-14
 
 * a7aa14e - Minor fixes

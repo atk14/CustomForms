@@ -44,7 +44,10 @@ class CustomFormFieldChoicesController extends AdminController {
 			$this->_find("custom_form_field","custom_form_field_id");
 		}
 		if(in_array($this->action,["edit"])){
-			$this->_find("custom_form_field_choice");
+			$_choice = $this->_find("custom_form_field_choice");
+			if($_choice){
+				$this->custom_form_field = $_choice->getCustomFormField();
+			}
 		}
 	}
 }

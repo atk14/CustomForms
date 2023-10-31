@@ -141,4 +141,25 @@ To use reCaptcha field, the constants RECAPTCHA_SITE_KEY and RECAPTCHA_SECRET_KE
 
 To use hCaptcha field, the constants HCAPTCHA_SITE_KEY and HCAPTCHA_SECRET_KEY must be defined. See https://packagist.org/packages/atk14/hcaptcha-field.
 
+Local custom fields for Custom Forms
+------------------------------------
+
+If an extra field is needed to build a form with special needs, it can be placed in folder app/fields/local_custom_form_fields/ in the application. The namespace of such field must be LocalCustomFormFields. See the following example.
+
+    <?php
+    // file: app/fields/local_custom_form_fields/opening_hours_field.php
+    namespace LocalCustomFormFields;
+
+    /**
+     * Opening hours
+     *
+     * cs: Otevírací doba
+     * sk: Otváracia doba
+     */
+    class OpeningHoursField extends \RegexField {
+
+       // ...
+    }
+    
+
 [//]: # ( vim: set ts=2 et: )

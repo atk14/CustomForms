@@ -14,6 +14,7 @@
         "require": {
                 "php": ">=5.4.0",
                 "atk14/csv-writer": "^1.2",
+                "atk14/csv-reader": "^1.1",
                 "atk14/recaptcha-field": "^0.1.2",
                 "atk14/hcaptcha-field": "^0.1",
                 "atk14/emails-field": "^0|>=0.1.2",

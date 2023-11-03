@@ -11,7 +11,7 @@ class CustomFormFieldChoice extends ApplicationModel implements Translatable, Ra
 
 	function getTitle(){
 		$title = parent::getTitle();
-		if(!strlen($title)){
+		if(!strlen((string)$title)){
 			$title = $this->getName();
 		}
 		return $title;

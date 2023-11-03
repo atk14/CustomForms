@@ -2,6 +2,15 @@
 class CustomFormFieldChoicesForm extends AdminForm {
 	
 	function set_up(){
+		$this->add_field("name", new CharField([
+			"label" => _("Název volby (počítačový)"),
+			"hints" => [
+				"green",
+				"blue",
+				"yellow",
+			],
+		]));
+
 		$this->add_translatable_field("title", new CharField([
 			"label" => _("Titulek"),
 			"required" => false,
@@ -9,15 +18,6 @@ class CustomFormFieldChoicesForm extends AdminForm {
 				"modrá",
 				"zelená",
 				"žlutá",
-			],
-		]));
-
-		$this->add_field("name", new CharField([
-			"label" => _("Název volby (počítačový)"),
-			"hints" => [
-				"green",
-				"blue",
-				"yellow",
 			],
 		]));
 	}

@@ -3,6 +3,12 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.5.4] - 2023-11-15
+
+* bffccc8 - Directory app/fields/local_custom_form_fields/ is being also scaned for fields usable in custom forms
+* ca114e4 - Choices for a field can be imported from CSV data
+* ed09efe - Notification sender's name pattern can be set on a specific CustomForm
+
 ## [0.5.3] - 2023-10-27
 
 * a354ee1 - Added checks for an option existance into administration

@@ -3,7 +3,7 @@ class CustomForm extends ApplicationModel implements Translatable {
 
 	use TraitGetInstanceByCode;
 
-	static function GetTranslatableFields() { return ["title", "description", "button_text", "finish_message", "notification_subject_pattern"]; }
+	static function GetTranslatableFields() { return ["title", "description", "button_text", "finish_message", "notification_subject_pattern", "sender_name_pattern"]; }
 
 	function getCustomFormFieldsets(){
 		return CustomFormFieldset::FindAll("custom_form_id",$this);
@@ -58,6 +58,44 @@ class CustomForm extends ApplicationModel implements Translatable {
 	 */
 	function getNotificationSubject(CustomFormData $custom_form_data,$options = []){
 		$subject = $this->getNotificationSubjectPattern($options);
+		$subject = strtr($subject,[
+			"%form_title%" => $this->getTitle(),
+			"%page_title%" => $custom_form_data->getPageTitle()
+		]);
+		return $subject;
+	}
+
+	/**
+	 *
+	 *	$subject_pattern = $custom_form->getSenderNamePattern();
+	 *	$subject_pattern = $custom_form->getSenderNamePattern("en");
+	 *	$subject_pattern = $custom_form->getSenderNamePattern("en",["fallback_pattern" => "Form submission at %page_title%");
+	 *	$subject_pattern = $custom_form->getSenderNamePattern(["fallback_pattern" => "Form submission at %page_title%"]);
+	 */
+	function getSenderNamePattern($lang = null, $options = []){
+		if(is_array($lang)){
+			$options = $lang;
+			$lang = null;
+		}
+		$options += [
+			"fallback_pattern" => ATK14_APPLICATION_NAME,
+		];
+
+		$out = parent::getSenderNamePattern($lang);
+		if(!strlen((string)$out)){
+			$out = $options["fallback_pattern"];
+		}
+
+		return $out;
+	}
+
+	/**
+	 *
+	 *	#subject = $custom_form->getSenderName($custom_form_data);
+	 *	#subject = $custom_form->getSenderName($custom_form_data,["fallback_pattern" => "Form submission at %page_title%"]);
+	 */
+	function getSenderName(CustomFormData $custom_form_data,$options = []){
+		$subject = $this->getSenderNamePattern($options);
 		$subject = strtr($subject,[
 			"%form_title%" => $this->getTitle(),
 			"%page_title%" => $custom_form_data->getPageTitle()

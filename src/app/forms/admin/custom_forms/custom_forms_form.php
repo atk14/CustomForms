@@ -36,6 +36,15 @@ class CustomFormsForm extends AdminForm {
 			"max_length" => 255,
 			"required" => false,
 			"null_empty_output" => true,
+			"help_text" => _("V textu lze použít značky %form_title% a %page_title%"),
+		]));
+
+		$this->add_translatable_field("sender_name_pattern", new CharField([
+			"label" => _("Název odesílatele notifikační zprávy"),
+			"max_length" => 255,
+			"required" => false,
+			"null_empty_output" => true,
+			"help_text" => _("V textu lze použít značky %form_title% a %page_title%"),
 		]));
 
 		$this->add_translatable_field("finish_message", new MarkdownField([

@@ -96,10 +96,12 @@ There is a couple of things needed to be merged manually.
       function notify_custom_form_submission($custom_form_data){
         $custom_form = $custom_form_data->getCustomForm();
         $this->to = $custom_form->getNotifyToEmail();
+        $this->from_name = $custom_form->getSenderName($custom_form_data);
         $this->subject = $custom_form->getNotificationSubject($custom_form_data);
 
         // # a custom fallback subject pattern can be set by the option fallback_pattern:
         // $this->subject = $custom_form->getNotificationSubject($custom_form_data,["fallback_pattern" => "Form submission at %page_title%"]);
+
 
         $this->tpl_data["custom_form"] = $custom_form;
         $this->tpl_data["custom_form_data"] = $custom_form_data;

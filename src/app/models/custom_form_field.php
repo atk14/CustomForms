@@ -66,6 +66,11 @@ class CustomFormField extends ApplicationModel implements Translatable, Rankable
 	}
 
 	function choicesRequired(){
+		$class_name = $this->getClassName();
+		$field = new $class_name();
+		if(method_exists($field,"choicesRequired")){
+			return $field->choicesRequired();
+		}
 		return !!preg_match('/Choice/',$this->getClassName()); // "ChoiceField", "MultipleChoiceField"...
 	}
 

@@ -1,8 +1,6 @@
 <?php
 class DetailForm extends ApplicationForm {
 
-	var $attr_id = "custom_form";
-
 	function set_up(){
 		global $HTTP_REQUEST;
 
@@ -15,11 +13,8 @@ class DetailForm extends ApplicationForm {
 		$fields = $custom_form->getFields();
 
 		$this->set_method("post");
-		if($custom_form->getCode()){
-			$this->attr_id .= "_".String4::ToObject($custom_form->getCode())->toSlug()->replace("-","_");
-		}
-		$this->set_attr("id",$this->attr_id);
-		$this->set_action($HTTP_REQUEST->getRequestUri()."#".$this->attr_id);
+		$this->set_attr("id","custom_form");
+		$this->set_action($HTTP_REQUEST->getRequestUri()."#custom_form");
 		$this->set_button_text($custom_form->getButtonText());
 		if(sizeof($fields)<=5){
 			$this->enable_csrf_protection();
@@ -60,7 +55,7 @@ class DetailForm extends ApplicationForm {
 				$uri .= "rnd=".uniqid();
 				$this->set_error(
 					_("Načtěte formulář ještě jednou, znovu jej vyplňte a odešlete")."<br><br>".
-					sprintf('<a href="%s">%s</a>',$uri."#".$this->attr_id,_("Načíst formulář znovu"))
+					sprintf('<a href="%s">%s</a>',$uri."#custom_form",_("Načíst formulář znovu"))
 				);
 			}
 

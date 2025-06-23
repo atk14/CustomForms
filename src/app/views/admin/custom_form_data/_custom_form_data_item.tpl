@@ -1,6 +1,6 @@
 {assign data $custom_form_data->getDataAsArray()}
-{assign keys $data|array_keys}
-{assign values $data|array_values}
+{assign keys array_keys($data)}
+{assign values array_values($data)}
 
 <tr>
 	<td>{$custom_form_data->getId()}</td>
@@ -9,7 +9,11 @@
 		<td>
 			{if $keys.$i}
 				<small>{$keys.$i}</small><br>
-				{$values.$i|truncate:50}
+				{if is_array($values.$i)}
+					{$values.$i|to_sentence|truncate:50}
+				{else}
+					{$values.$i|truncate:50}
+				{/if}
 			{else}
 				&mdash;
 			{/if}

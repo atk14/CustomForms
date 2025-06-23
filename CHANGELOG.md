@@ -3,6 +3,11 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.5.5] - 2025-06-23
+
+* 7d3a24b - A template fixed
+* 1d37a31 - A custom form field can have the choicesRequired method
+
 ## [0.5.4] - 2023-11-15
 
 * bffccc8 - Directory app/fields/local_custom_form_fields/ is being also scaned for fields usable in custom forms

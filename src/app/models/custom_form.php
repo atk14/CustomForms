@@ -112,9 +112,8 @@ class CustomForm extends ApplicationModel implements Translatable {
 	}
 
 	function isDeletable(){
-		foreach(["custom_form_data","pages"] as $table){
-			$cnt = $this->dbmole->selectInt("SELECT COUNT(*) FROM (SELECT id FROM $table WHERE custom_form_id=:custom_form LIMIT 1)q",[":custom_form" => $this]);
-			if($cnt>0){ return false; }
+		if(CustomFormData::FindFirst("custom_form_id",$this) || Page::FindFirst("custom_form_id",$this)){
+			return false;
 		}
 		return true;
 	}

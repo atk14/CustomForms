@@ -18,4 +18,8 @@ class CustomFormsController extends ApplicationController {
 
 	function _after_notification($custom_form_data){
 	}
+
+	function _is_admin_logged_in(){
+		return $this->logged_user && $this->logged_user->isAdmin();
+	}
 }

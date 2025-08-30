@@ -6,12 +6,12 @@ trait TraitCustomFormsController {
 	function detail(){
 		global $ATK14_GLOBAL;
 
-		if(!$this->rendering_component && !$this->_is_admin_logged_in()){
+		if(!$this->rendering_component && !$this->_is_admin_access_granted()){
 			// custom formulare se zobrazuji na jinych strankach pomoci render_component
 			return $this->_execute_action("error404");
 		}
 
-		if(!$this->custom_form->isVisible() && !$this->_is_admin_logged_in()){
+		if(!$this->custom_form->isVisible() && !$this->_is_admin_access_granted()){
 			$this->render_template = false;
 			return;
 		}
@@ -143,7 +143,7 @@ trait TraitCustomFormsController {
 	function _after_notification($custom_form_data){
 	}
 
-	function _is_admin_logged_in(){
+	function _is_admin_access_granted(){
 		return $this->logged_user && $this->logged_user->isAdmin();
 	}
 }

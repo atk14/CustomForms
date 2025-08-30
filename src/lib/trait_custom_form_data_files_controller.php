@@ -3,7 +3,7 @@ trait TraitCustomFormDataFilesController {
 
 	function detail(){
 		// Detail souboru je dostupny pouze prihlasenemu administratorovi
-		if(!$this->_is_admin_logged_in()){
+		if(!$this->_is_admin_access_granted()){
 			return $this->_execute_action("error403");
 		}
 
@@ -20,7 +20,7 @@ trait TraitCustomFormDataFilesController {
 		$this->response->write(base64_decode($file->getBody()));
 	}
 
-	function _is_admin_logged_in(){
+	function _is_admin_access_granted(){
 		return $this->logged_user && $this->logged_user->isAdmin();
 	}
 }

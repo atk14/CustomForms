@@ -3,6 +3,11 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.5.6] - 2025-10-24
+
+* Added controller method `_is_admin_access_granted()` that can be overloaded
+* a8ac8c6 - CustomForm::isDeletable() is not dependent on the table name of the class Page
+
 ## [0.5.5] - 2025-06-23
 
 * 7d3a24b - A template fixed

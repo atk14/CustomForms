@@ -7,6 +7,9 @@ namespace CustomFormFields;
  * cs: Captcha (jednoduchá ochrana)
  */
 class CaptchaField extends \CharField {
+
+	var $question;
+	var $answers;
 	
 	function __construct($options = []){
 		$options += [

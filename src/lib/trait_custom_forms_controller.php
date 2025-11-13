@@ -28,7 +28,13 @@ trait TraitCustomFormsController {
 
 		$this->form->prepare_for_custom_form($this->custom_form);
 
-		if($this->request->post() && ($d = $this->form->validate($this->params))){
+		if($this->request->post()){
+			$params = clone($this->params);
+			$this->_before_form_validation($params);
+			if(!$d = $this->form->validate($params)){
+				return;
+			}
+
 			$this->_after_form_validation($d);
 			if($this->form->has_errors()){
 				return;
@@ -129,6 +135,15 @@ trait TraitCustomFormsController {
 	}
 
 	// Process hooks
+
+	function _before_form_validation(&$params){
+		// One can either modify a field property
+		// if($this->custom_form->getCode()==="something"){
+		//	$this->form->fields["name"]->max_length = 10;
+		// }
+		//
+		// or modify $params
+	}
 
 	function _after_form_validation(&$d){
 		// if( $something_bad ){

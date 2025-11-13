@@ -6,6 +6,15 @@ class CustomFormsController extends ApplicationController {
 
 	// Process hooks
 
+	function _before_form_validation(&$params){
+		// One can either modify a field property
+		// if($this->custom_form->getCode()==="something"){
+		//	$this->form->fields["name"]->max_length = 10;
+		// }
+		//
+		// or modify $params
+	}
+
 	function _after_form_validation(&$d){
 		// if( $something_bad ){
 		//	$this->form->set_error("Change something and do it again");

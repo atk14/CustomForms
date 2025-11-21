@@ -18,7 +18,7 @@ class CustomFormsController extends AdminController {
 			"conditions" => $conditions,
 			"bind_ar" => $bind_ar,
 			"order_by" => $this->sorting,
-			"offset" => $this->params->getInt("offset")
+			"offset" => $this->params->getInt(ATK14_PAGINATOR_OFFSET_PARAM_NAME)
 		]);
 	}
 

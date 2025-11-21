@@ -82,7 +82,7 @@ class CustomFormDataController extends AdminController {
 		];
 
 		if(!$format) {
-			$params["offset"] = $this->params->getInt("offset");
+			$params["offset"] = $this->params->getInt(ATK14_PAGINATOR_OFFSET_PARAM_NAME);
 		} else {
 			$params["limit"] = null;
 		}

@@ -10,6 +10,10 @@ class CustomFormField extends ApplicationModel implements Translatable, Rankable
 	}
 
 	static function GetSupportedFields(){
+		global $ATK14_GLOBAL;
+
+		$lang = $ATK14_GLOBAL->getLang();
+
 		$out = [];
 
 		$dirs = [
@@ -30,9 +34,14 @@ class CustomFormField extends ApplicationModel implements Translatable, Rankable
 				// nacteni popisu primo ze souboru - z poznamky
 				$name = $class_name;
 				$content = Files::GetFileContent($filename);
-				if(preg_match('/^.+?\/\*{1,2}\s*\n\s*\*(.*?)\n/s',$content,$matches)){
-					$name = trim($matches[1]);
-					
+				if(preg_match('/^.+?(?<comment>\/\*{1,2}\s*\n\s*\*(?<default_label>.*?)\n.*?\*\/)/s',$content,$matches)){
+					$name = trim($matches["default_label"]);
+					$comment = $matches["comment"];
+					// detecke lokalizovaneho nazvy, napr.
+					// * cs: Celociselna hodnota
+					if(preg_match("/\*\s*$lang:(.*?)\n/",$comment,$matches) && strlen(trim($matches[1]))){
+						$name = trim($matches["1"]);
+					}
 				}
 
 				$key = "$name $class_name";

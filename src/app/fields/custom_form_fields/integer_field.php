@@ -4,7 +4,7 @@ namespace CustomFormFields;
 /**
  * Integer
  *
- * cs: Celočíselná číslo
+ * cs: Celočíselná hodnota
  */
 class IntegerField extends \IntegerField {
 

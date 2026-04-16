@@ -3,6 +3,13 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.5.7] - 2026-04-16
+
+* 8dbf76f - Added IntegerField
+* 87c2dad - DateField modernized (now it's pickerable)
+* 77454b8 - Added a process hook `_after_form_preparation()`
+* 04d300c - Added a process hoot `_before_form_validation($params)`
+
 ## [0.5.6] - 2025-10-24
 
 * Added controller method `_is_admin_access_granted()` that can be overloaded

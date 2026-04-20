@@ -1,6 +1,8 @@
 <div id="custom_form">
 
+{if $custom_form->isTitleVisible()}
 <h2>{$custom_form->getTitle()}</h2>
+{/if}
 
 {admin_menu for=$custom_form}
 

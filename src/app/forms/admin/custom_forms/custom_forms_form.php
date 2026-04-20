@@ -2,6 +2,8 @@
 class CustomFormsForm extends AdminForm {
 
 	function set_up(){
+		$cf = new CustomForm();
+
 		$this->add_translatable_field("title", new CharField([
 			"label" => _("Název"),
 			"max_length" => 255,
@@ -12,6 +14,14 @@ class CustomFormsForm extends AdminForm {
 			"required" => false,
 			"initial" => true,
 		]));
+
+		if($cf->hasKey("title_visible")){
+			$this->add_field("title_visible", new BooleanField([
+				"label" => _("Zobrazovat název formuláře na webu?"),
+				"required" => false,
+				"initial" => true,
+			]));
+		}
 
 		$this->add_translatable_field("button_text", new CharField([
 			"label" => _("Text na odesílacím tlačítku"),
@@ -51,6 +61,14 @@ class CustomFormsForm extends AdminForm {
 			"label" => _("Text zobrazený po odeslání formuláře"),
 			"required" => false,
 		]));
+
+		if($cf->hasKey("css_class")){
+			$this->add_field("css_class", new CharField([
+				"label" => _("CSS třída"),
+				"max_length" => 255,
+				"required" => false,
+			]));
+		}
 
 		$this->add_field("code", new CharField([
 			"label" => _("Unikátní identikační kód formuláře"),

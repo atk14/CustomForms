@@ -71,6 +71,7 @@ Installation
 Copy migrations files to your project. The leading numbered sequences can be optionally changed, but it's better to preserve them in order to tracking changes in future versions of the Custom Forms.
 
     cp vendor/atk14/custom-forms/src/db/migrations/0145_custom_forms.sql db/migrations/
+    cp vendor/atk14/custom-forms/src/db/migrations/0145_zz01_altering_custom_forms.sql db/migrations/
     cp vendor/atk14/custom-forms/src/db/migrations/0146_adding_custom_form_id_to_pages.sql db/migrations/
     cp vendor/atk14/custom-forms/src/db/migrations/0147_adding_contact_form_migration.php db/migrations/
 

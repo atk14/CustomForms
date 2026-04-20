@@ -1,3 +1,5 @@
+{capture assign="css_class"}{trim}form-horizontal {$custom_form->getCssClass()}{/trim}{/capture}
+
 {form _novalidate="novalidate" _class="form-horizontal"}
 
 	{if !$custom_form->isVisible() || !$rendering_component}
@@ -10,7 +12,9 @@
 		</div>
 	{/if}
 
+	{if $custom_form->isTitleVisible()}
 	<h2>{$custom_form->getTitle()}</h2>
+	{/if}
 
 	{render partial="shared/form_error"}
 

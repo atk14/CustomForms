@@ -107,6 +107,20 @@ class CustomForm extends ApplicationModel implements Translatable {
 		return $this->g("visible");
 	}
 
+	function isTitleVisible(){
+		if(!$this->hasKey("title_visible")){ // this filed was added later as part of the 0145_zz01_altering_custom_forms.sql migration
+			return true;
+		}
+		return $this->g("title_visible");
+	}
+
+	function getCssClass(){
+		if(!$this->hasKey("css_class")){ // this filed was added later as part of the 0145_zz01_altering_custom_forms.sql migration
+			return null;
+		}
+		return $this->g("css_class");
+	}
+
 	function getCountOfDataRecords(){
 		return $this->dbmole->selectInt("SELECT COUNT(*) FROM custom_form_data WHERE custom_form_id=:custom_form",[":custom_form" => $this]);
 	}

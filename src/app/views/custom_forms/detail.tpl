@@ -1,6 +1,6 @@
 {capture assign="css_class"}{trim}form-horizontal {$custom_form->getCssClass()}{/trim}{/capture}
 
-{form _novalidate="novalidate" _class="form-horizontal"}
+{form _novalidate="novalidate" _class=$css_class}
 
 	{if !$custom_form->isVisible() || !$rendering_component}
 		<div class="alert alert-warning" role="alert">

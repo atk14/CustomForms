@@ -3,6 +3,11 @@ Change Log
 
 All notable changes to Custom Forms project will be documented in this file.
 
+## [0.5.8] - 2026-06-05
+
+* a55c0f7 - CSS class added to the form element
+* 9f2119e - Added new databse fields: custom_forms.title_visible and custom_forms.css_class
+
 ## [0.5.7] - 2026-04-16
 
 * 8dbf76f - Added IntegerField

@@ -35,7 +35,7 @@ class DateField extends \DateField {
 
 class DateInput extends \TextInput {
 
-	var $input_type = "date";
+	public $input_type = "date";
 
 	function value_from_datadict($data, $name){
 		if(isset($data[$name]) && is_string($data[$name])){

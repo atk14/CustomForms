@@ -8,8 +8,8 @@ namespace CustomFormFields;
  */
 class CaptchaField extends \CharField {
 
-	var $question;
-	var $answers;
+	public $question;
+	public $answers;
 	
 	function __construct($options = []){
 		$options += [

@@ -3,7 +3,7 @@ namespace CustomFormWidgets;
 
 class RadioSelectWithTextArea extends \RadioSelect {
 
-	var $text; // Zde bude nastaven text, ktery byde zadan do textarey
+	public $text; // Zde bude nastaven text, ktery byde zadan do textarey
 
 	function render($name, $value, $options = []){
 		global $HTTP_REQUEST;

@@ -1,7 +1,7 @@
 <?php
 trait TraitCustomFormsController {
 
-	var $custom_form_data_just_created = null;
+	public $custom_form_data_just_created = null;
 
 	function detail(){
 		global $ATK14_GLOBAL;
